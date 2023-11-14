@@ -1149,6 +1149,7 @@ while game_running:
     time.sleep(1)
     print("Deaths from this run: " + str(deaths))
     print("")
+    #Achievements section
     print("------ACHIEVEMENTS-----")
     print("")
     time.sleep(1)
@@ -1240,6 +1241,7 @@ while game_running:
         print("Still a Peasant - ???????????")
     
     print("")
+    #Prints out the number of achievements they got
     print("Number of achievements got: " + str(num_of_achievements) + " / " + str(total))
     time.sleep(5.2)
     print("")
@@ -1254,7 +1256,7 @@ while game_running:
             print("")
             time.sleep(0.3)
         
-    
+    #If the user wants to play again to get more achivements
     if decision.lower() == "y":
         deaths = 0
         latest_death = "None"
