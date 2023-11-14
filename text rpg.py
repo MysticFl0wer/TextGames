@@ -1128,22 +1128,23 @@ while game_running:
             continue
     
     print("-----THE END-------")
+    #Credits
     if attack == 0 and magic == 0:
         peasant = True
     time.sleep(1)
-    print("A GAME MADE BY SAMANTHA VALENUELA")
+    print("A GAME MADE BY MYSTICFL0WER")
     print("")
     time.sleep(1)
     print("DIRECTOR")
-    print("Samantha Valenzuela")
+    print("MysticFl0wer")
     print("")
     time.sleep(1)
     print("LEAD PROGRAMMER")
-    print("Samantha Valenzuela")
+    print("MysticFl0wer")
     print("")
     time.sleep(1)
     print("YOUR MOM")
-    print("Samantha Valenzuela")
+    print("MysticFl0wer")
     print("")
     time.sleep(1)
     print("Deaths from this run: " + str(deaths))
