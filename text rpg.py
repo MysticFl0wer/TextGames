@@ -30,7 +30,7 @@ print("  |_____| '.__.' [___||__||__][__;.__.' [\__) )\__/ '.__.' [___||__]'.__.
 
 print("")
 print("A Simple Text-RPG Played With Inputting Numbers")
-print("Ver. 1.0.4")
+print("Ver. 1.0.5")
 print("Written in Python 3")
 print("")
 
