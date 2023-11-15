@@ -36,6 +36,8 @@ print("")
 
 time.sleep(1)
 
+
+
 name = input("Type your name: ")
 
 while game_running:
@@ -48,7 +50,27 @@ while game_running:
     #Counts the number of achivements
     num_of_achievements = 0
 
-
+#Function to print all the player's stats
+    def printAllInfo():
+        print("")
+        print("==========")
+        print( "[" + name.upper() + "'S STATS]")
+        print("Attack: " + str(attack))
+        print("Magic: " + str(magic))
+        print("Inventory:")
+        for i in inventory:
+            print(">" + i)
+        print("==========")
+        print("")
+    #Function to print the inventory only
+    def printInventory():
+        print("")
+        print("==========")
+        print("[" + name.upper() + "'S INVENTORY]")
+        for i in inventory:
+            print(">" + i)
+        print("==========")
+        print("")
 
 #Prints the number of deaths and the reason for the latest death
     print("")
@@ -344,20 +366,11 @@ while game_running:
         print("")
 
         while True:
-            print("")
-            print("============")
-            print("[STATS]")
-            print("Attack: " + str(attack))
-            print("Magic: " + str(magic))
-            print("Inventory: ")
-            for i in inventory:
-                print(i)
-            print("============")
-            print("")
+            printAllInfo()
             time.sleep(1)
             print(">>Actions:" + '\n' + "(1)Throw the magical antibiotics - REQUIREMENTS => Have the magical antibiotic in your inventory" +
-                  '\n' + "(2) Do a 360 mlg dorito mountain dew no-scope - REQUIREMENTS => Have at least 50 attack" +
-                  '\n' + "(3) Cast an epic dorito illuminati spell - REQUIREMENTS => Have at least 10 magic" +
+                  '\n' + "(2)Do a 360 mlg dorito mountain dew no-scope - REQUIREMENTS => Have at least 50 attack" +
+                  '\n' + "(3)Cast an epic dorito illuminati spell - REQUIREMENTS => Have at least 10 magic" +
                     '\n' + "(4)Cry")
             decision = input(">")
             if decision == "1" or decision == "2" or decision == "3" or decision == "4":
@@ -444,11 +457,7 @@ while game_running:
     print("")
 
     while True:
-        print("========")
-        print("Inventory: ")
-        for i in inventory:
-            print(i)
-        print("========")
+        printInventory()
         print(">>Actions:" + '\n' + "(1)Try to jump over the lava moat" + '\n' +
               "(2)Try to go past the guards at the entrance - REQUIREMENTS => Have the bottle of black death in your inventory" + '\n' +
               "(3)Walk around the castle")
@@ -515,15 +524,7 @@ while game_running:
             print("")
 
             while True:
-                print("===========")
-                print("[STATS]")
-                print("Attack: " + str(attack))
-                print("Magic: " + str(magic))
-                print("Inventory: ")
-                for i in inventory:
-                    print(i)
-                print("===========")
-                print("")
+                printAllInfo()
                 print(">>Actions:" + '\n' + "(1)Call the police" + '\n' +
                        "(2)Engage in a magic duel - REQUIREMENTS => Have at least 50 magic" + '\n' +
                        "(3)Use the bottle of black death - REQUIREMENTS => Have the bottle of black death in your inventory.")
@@ -587,17 +588,8 @@ while game_running:
             print("===========")
             print("a SOUL CONSUMING FLAME stands in your way")
             print("===========")
-            print("")
             while True:
-                print("===========")
-                print("[STATS]")
-                print("Attack: " + str(attack))
-                print("Magic: " + str(magic))
-                print("Inventory:")
-                for i in inventory:
-                    print(i)
-                print("==========")
-                print("")
+                printAllInfo()
                 print(">>Actions:" + '\n' + "(1)Try to extinguish the flame" +
                       '\n' + "(2)1080 mlg dorito illuminati no-scope the flame - REQUIREMENTS => have at least 100 attack" +
                       '\n' + "(3)Offer your soul as sacrifice")
@@ -651,17 +643,8 @@ while game_running:
             print("===========")
             print("a M1 ABRAMS TANK blocks your way!")
             print("===========")
-            print("")
             while True:
-                print("==========")
-                print("[STATS]")
-                print("Attack: " + str(attack))
-                print("Magic: " + str(magic))
-                print("Inventory:")
-                for i in inventory:
-                    print(i)
-                print("==========")
-                print("")
+                printAllInfo()
                 print(">>Actions:" + '\n' + "(1) Use the bottle of black death - REQUIREMENTS => Have the bottle of black death" +
                       '\n' + "(2)Do a 720 mlg illuminati dorito epic no-scope - REQUIREMENTS => Have at least 50 attack" +
                       '\n' + "(3)Cast a magical barrier - REQUIREMENTS => Have at least 10 magic" + '\n' + 
@@ -813,18 +796,9 @@ while game_running:
     print("")
     time.sleep(1)
     print("What will you do?")
-    print("")
 
     while True:
-        print("===========")
-        print("[STATS]")
-        print("Attack: " + str(attack))
-        print("Magic: " + str(magic))
-        print("Inventory:")
-        for i in inventory:
-            print(i)
-        print("===========")
-        print("")
+        printAllInfo()
         print(">>Actions:" + '\n' + "(1)Use items" + '\n' + 
               "(2)Do the most epic no-scope - REQUIREMENTS => Have at least 100 attack" + '\n' +
               "(3)Summon an enormous explosion - REQUIREMENTS => Have at least 50 magic" +
@@ -852,13 +826,7 @@ while game_running:
         print("Which item will you use?")
         time.sleep(1)
         while True:
-            print("")
-            print("==========")
-            print("[OPTIONS]")
-            for i in range(len(inventory)):
-                index = i + 1
-                print("(" + str(index) + ") " + inventory[i])
-            print("==========")
+            printInventory()
             print("TIP: type in the name of the item you want to use")
             print("")
             decision = input(">")
