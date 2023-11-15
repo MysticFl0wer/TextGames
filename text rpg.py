@@ -1,4 +1,3 @@
-from cProfile import label
 import time
 
 
@@ -31,7 +30,7 @@ print("  |_____| '.__.' [___||__||__][__;.__.' [\__) )\__/ '.__.' [___||__]'.__.
 
 print("")
 print("A Simple Text-RPG Played With Inputting Numbers")
-print("Ver. 1.0.3")
+print("Ver. 1.0.4")
 print("Written in Python 3")
 print("")
 
@@ -384,7 +383,7 @@ while game_running:
                print(">>YOU DIED<<")
                deaths += 1
                latest_death = "360 mlg no-scope was not epic enough"
-            continue
+               continue
         elif decision == "3":
             print("You decided to cast an epic dorito illuminati spell")
             time.sleep(1)
