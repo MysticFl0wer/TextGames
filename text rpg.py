@@ -31,7 +31,7 @@ print("  |_____| '.__.' [___||__||__][__;.__.' [\__) )\__/ '.__.' [___||__]'.__.
 
 print("")
 print("A Simple Text-RPG Played With Inputting Numbers")
-print("Ver. 1.0.2")
+print("Ver. 1.0.3")
 print("Written in Python 3")
 print("")
 
@@ -368,36 +368,38 @@ while game_running:
                print("")
                time.sleep(0.3)
 
-
-        if decision == "2" and attack >= 50:
+#cleaned up some code here
+        if decision == "2":
             print("You decided to 360 mlg dorito mountain dew no-scope the PLAGUE RAT OF DOOM")
             time.sleep(1)
-            print("Your no-scope was so epic the rat died!")
-            sanctuary_beaten = True
-            xxx_noscopethreesixty = True
-        elif decision == "2" and attack < 50:
-            print("You try to 360 mlg dorito mountain dew no-scope the PLAGUE RAT OF DOOM")
-            time.sleep(0.9)
-            print("However, you don't have enough ATTACK to no-scope the PLAGUE RAT OF DOOM.")
-            time.sleep(1)
-            print(">>YOU DIED<<")
-            deaths += 1
-            latest_death = "360 mlg no-scope was not epic enough"
+            if attack >= 50:
+                print("Your no-scope was so epic the rat died!")
+                sanctuary_beaten = True
+                xxx_noscopethreesixty = True
+            else:   
+               print("You try to 360 mlg dorito mountain dew no-scope the PLAGUE RAT OF DOOM")
+               time.sleep(0.9)
+               print("However, you don't have enough ATTACK to no-scope the PLAGUE RAT OF DOOM.")
+               time.sleep(1)
+               print(">>YOU DIED<<")
+               deaths += 1
+               latest_death = "360 mlg no-scope was not epic enough"
             continue
-        elif decision == "3" and magic >= 10:
+        elif decision == "3":
             print("You decided to cast an epic dorito illuminati spell")
             time.sleep(1)
-            print("Your spell turned the turned the PLAGUE RAT OF DOOM into a pile of doritos!")
-            sanctuary_beaten = True
-        elif decision == "2" and magic < 50:
-            print("You tried to cast an epic dorito illuminati spell")
-            time.sleep(1)
-            print("However, your spell just made the PLAGUE RAT OF DOOM stronger!")
-            time.sleep(1)
-            print(">>YOU DIED<<")
-            deaths += 1
-            latest_death = "Uno reverse spell"
-            continue
+            if magic >= 10:
+                print("Your spell turned the turned the PLAGUE RAT OF DOOM into a pile of doritos!")
+                sanctuary_beaten = True
+            else:    
+                print("You tried to cast an epic dorito illuminati spell")
+                time.sleep(1)
+                print("However, your spell just made the PLAGUE RAT OF DOOM stronger!")
+                time.sleep(1)
+                print(">>YOU DIED<<")
+                deaths += 1
+                latest_death = "Uno reverse spell"
+                continue
         elif decision == "4":
             print("You decided to cry.")
             time.sleep(2)
