@@ -1,7 +1,6 @@
 import time
 
-
-game_running = True
+main_game = True
 deaths = 0
 latest_death = "None"
 #Achievements
@@ -30,17 +29,22 @@ print("  |_____| '.__.' [___||__||__][__;.__.' [\__) )\__/ '.__.' [___||__]'.__.
 
 print("")
 print("A Simple Text-RPG Played With Inputting Numbers")
-print("Ver. 1.0.5")
+print("Ver. 1.0.6")
 print("Written in Python 3")
 print("")
 
 time.sleep(1)
 
+def notAValidCommand():
+    print("That's not a valid command!")
+    print("")
+    time.sleep(0.4)
 
 
-name = input("Type your name: ")
+#will default to 'flipper flopper' if the user doesn't input anything
+name = input("Type your name: ") or "Flipper Flopper"
 
-while game_running:
+while main_game:
     #stats
     attack = 0
     magic = 0
@@ -90,17 +94,15 @@ while game_running:
     time.sleep(0.5)
 #Prints out all the actions on separate lines
     while True:
-        print(">>Actions:" + '\n' + "(1)Go back to sleep" + '\n' +  "(2)Get up from bed")
+        print(">>Actions:\n(1)Go back to sleep\n(2)Get up from bed")
         decision = input(">")
 
-        if decision == "1" or decision == "2":
+        if decision in ["1", "2"]:
             break
         #If the user inputs an invalid command it will repeat the loop
         #until the user inputs a valid command
         else:
-            print("That is not a valid command!")
-            print("")
-            time.sleep(0.3)
+            notAValidCommand()
             
    #Events
     if decision == "1":
@@ -124,16 +126,13 @@ while game_running:
     time.sleep(0.5)
     
     while True:
-        print(">>Actions:" +'\n'+ "(1)Go Downstairs" +'\n'+ "(2)Stare into the abyss " + '\n' +
-              "(3)Eat Cruchy Crunchy cereal, the cereal that's crunchy AND melts in your mouth at the same time")
+        print(">>Actions:\n(1)Go Downstairs\n(2)Stare into the abyss\n(3)Eat Cruchy Crunchy cereal, the cereal that's crunchy AND melts in your mouth at the same time")
         decision = input(">")
-        if decision == "1" or decision == "2" or decision == "3":
+        if decision in ["1", "2", "3"]:
             break
         #If the user inputs an invalid command
         else:
-            print("That is not a valid command!")
-            print("")
-            time.sleep(0.3)
+            notAValidCommand()
     
     #Events
     if decision == "1":
@@ -163,15 +162,12 @@ while game_running:
     time.sleep(1)
 
     while True:
-        print(">>Actions:" + '\n' + "(1)Eat breakfast" + '\n' + "(2)Go Outside" + '\n' +
-        "(3)Read a book about necromancy")
+        print(">>Actions:\n(1)Eat breakfast\n(2)Go Outside\n(3)Read a book about necromancy")
         decision = input(">")
-        if decision == "1" or decision == "2" or decision == "3":
+        if decision in ["1", "2", "3"]:
             break
         else:
-            print("That is not a valid command!")
-            print("")
-            time.sleep(0.3)
+            notAValidCommand()
     #Events
     if decision == "1":
         print("You decided to eat breakfast")
@@ -207,14 +203,12 @@ while game_running:
     print("What will you do?")
 
     while True:
-        print(">>Actions:" + '\n' + "(1)Fight the DARK LORD" + '\n' + "(2)Try to talk to the DARK LORD")
+        print(">>Actions:\n(1)Fight the DARK LORD\n(2)Try to talk to the DARK LORD")
         decision = input(">")
-        if decision == "1" or decision == "2":
+        if decision in ["1", "2"]:
             break
         else:
-            print("That is not a valid command!")
-            print("")
-            time.sleep(0.3)
+            notAValidCommand()
     #Events
     if decision == "1":
         print("You decided to run in and fight the DARK LORD")
@@ -248,14 +242,12 @@ while game_running:
     time.sleep(0.5)
 
     while True:
-        print(">>Actions:" + '\n' + "(1)Talk to the villagers" + '\n' + "(2)Walk around aimlessly")
+        print(">>Actions:\n(1)Talk to the villagers\n(2)Walk around aimlessly")
         decision = input(">")
-        if decision == "1" or decision == "2":
+        if decision in ["1", "2"]:
             break
         else:
-            print("That is not a valid command!")
-            print("")
-            time.sleep(0.3)
+            notAValidCommand()
     #Events
     if decision == "1":
         print("You decided to talk to the villagers")
@@ -275,15 +267,12 @@ while game_running:
         print("Which one will you go to?")
         print("")
         while True:
-            print(">>Actions:" + '\n' + "(1)Magical Pharmacy" + '\n'
-                   + "(2)24 HR Medieval Gym" + '\n' + "(3)Definitely not a sketchy house")
+            print(">>Actions:\n(1)Magical Pharmacy\n(2)24 HR Medieval Gym\n(3)Definitely not a sketchy house")
             decision = input(">")
-            if decision == "1" or decision == "2" or decision == "3":
+            if decision in ["1", "2", "3"]:
                 break
             else:
-                print("That is not a valid command!")
-                print("")
-                time.sleep(0.3)
+                notAValidCommand()
 
         if decision == "1":
             print("You decided to go the Magical Pharmacy.")
@@ -341,14 +330,12 @@ while game_running:
     time.sleep(2)
 
     while True:
-        print(">>Actions:" + '\n' + "(1)Go to DARK LORD's palace" + '\n' + "(2)Go to Sacred Sanctuary")
+        print(">>Actions:\n(1)Go to DARK LORD's palace\n(2)Go to Sacred Sanctuary")
         decision = input(">")   
-        if decision == "1" or decision == "2":
+        if decision in ["1","2"]:
             break
         else:
-            print("That is not a valid command!")
-            print("")
-            time.sleep(0.3)
+            notAValidCommand()
     
     if decision == "1":
         print("You decided to go straight to the DARK LORD's palace.")
@@ -368,17 +355,15 @@ while game_running:
         while True:
             printAllInfo()
             time.sleep(1)
-            print(">>Actions:" + '\n' + "(1)Throw the magical antibiotics - REQUIREMENTS => Have the magical antibiotic in your inventory" +
+            print(">>Actions:\n(1)Throw the magical antibiotics - REQUIREMENTS => Have the magical antibiotic in your inventory" +
                   '\n' + "(2)Do a 360 mlg dorito mountain dew no-scope - REQUIREMENTS => Have at least 50 attack" +
                   '\n' + "(3)Cast an epic dorito illuminati spell - REQUIREMENTS => Have at least 10 magic" +
                     '\n' + "(4)Cry")
             decision = input(">")
-            if decision == "1" or decision == "2" or decision == "3" or decision == "4":
+            if decision in ["1","2","3","4"]:
                 break
             else:
-               print("That is not a valid command!")
-               print("")
-               time.sleep(0.3)
+                notAValidCommand()
 
 #cleaned up some code here
         if decision == "2":
@@ -462,12 +447,10 @@ while game_running:
               "(2)Try to go past the guards at the entrance - REQUIREMENTS => Have the bottle of black death in your inventory" + '\n' +
               "(3)Walk around the castle")
         decision = input(">")
-        if decision == "1" or decision == "2" or decision == "3":
+        if decision in ["1","2","3"]:
             break
         else:
-            print("That is not a valid command!")
-            print("")
-            time.sleep(0.3)
+            notAValidCommand()
     
     if decision == "1":
         print("You decided to try to jump over the lava moat.")
@@ -507,12 +490,10 @@ while game_running:
             print(">>Actions:" + '\n' + "(1)The path with an evil-looking wizard" + '\n' +
                    "(2)The path with a ferocious monster" + '\n' + "(3)The path with the tank (which is somehow in a sewer)" )
             decision = input(">")
-            if decision == "1" or decision == "2" or decision =="3":
+            if decision in ["1","2","3"]:
                 break
             else:
-                print("That is not a valid command!")
-                print("")
-                time.sleep(0.3)
+                notAValidCommand()
         
         if decision == "1":
             print("You decided to approach the evil-looking wizard.")
@@ -529,12 +510,10 @@ while game_running:
                        "(2)Engage in a magic duel - REQUIREMENTS => Have at least 50 magic" + '\n' +
                        "(3)Use the bottle of black death - REQUIREMENTS => Have the bottle of black death in your inventory.")
                 decision = input(">")
-                if decision == "1" or decision == "2" or decision == "3":
+                if decision in ["1", "2", "3"]:
                     break
                 else:
-                    print("That is not a valid command!")
-                    print("")
-                    time.sleep(0.3)
+                    notAValidCommand()
 
             if decision == "1":
                 print("You decided to call the police.")
@@ -594,12 +573,10 @@ while game_running:
                       '\n' + "(2)1080 mlg dorito illuminati no-scope the flame - REQUIREMENTS => have at least 100 attack" +
                       '\n' + "(3)Offer your soul as sacrifice")
                 decision = input(">")
-                if decision == "1" or decision == "2" or decision == "3":
+                if decision in ["1","2","3"]:
                     break
                 else:
-                    print("That is not a valid command!")
-                    print("")
-                    time.sleep(0.3)
+                    notAValidCommand()
 
             if decision == "1":
                 print("You decided to try to extinguish the SOUL CONSUMING FLAME.")
@@ -650,12 +627,10 @@ while game_running:
                       '\n' + "(3)Cast a magical barrier - REQUIREMENTS => Have at least 10 magic" + '\n' + 
                       "(4)Not give the tank your legal consent")
                 decision = input(">")
-                if decision == "1" or decision == "2" or decision == "3" or decision == "4":
+                if decision in ["1","2","3","4"]:
                     break
                 else:
-                    print("That is not a valid command!")
-                    print("")
-                    time.sleep(0.3)
+                    notAValidCommand()
             
             if decision == "1":
                 print("You decided to use the bottle of black death")
@@ -739,12 +714,10 @@ while game_running:
         print(">>Actions:" + '\n' + "(1)The secret path behind the painting" + '\n' +
               "(2)The door at the end of the hallway" + '\n' + "(3)The path in the weird-looking closet")
         decision = input(">")
-        if decision == "1" or decision == "2" or decision == "3":
+        if decision in ["1","2","3"]:
             break
         else:
-            print("That is not a valid command!")
-            print("")
-            time.sleep(0.3)
+            notAValidCommand()
 
     if decision == "1":
         print("You decided to take the secret path behind the painting.")
@@ -806,7 +779,7 @@ while game_running:
         if journal_read:
             print("(5)Offer to help - REQUIREMENTS => Have the magical antibiotics in your antibiotics")
         decision = input(">")
-        if  decision == "2" or decision == "3" or decision == "4":
+        if  decision in ["2", "3", "4"]:
             break
         elif decision == "5" and journal_read:
             break
@@ -817,9 +790,7 @@ while game_running:
             print("")
             time.sleep(0.3)
         else:
-            print("That is not a valid command!")
-            print("")
-            time.sleep(0.3)
+            notAValidCommand()
     
     if decision == "1":
         print("You decided to use some items.")
@@ -864,12 +835,10 @@ while game_running:
                 print(">>Actions:" + '\n' + "(1)Let GOMORRAH eat the DARK LORD" +
                       '\n' + "(2)Spare the DARK LORD")
                 decision = input(">")
-                if decision == "1" or decision == "2":
+                if decision in ["1","2"]:
                     break
                 else:
-                    print("That is not a valid command!")
-                    print("")
-                    time.sleep(0.3)
+                    notAValidCommand()
             
             if decision == "1":
                 print("You decided to let GOMORRAH eat the DARK LORD")
@@ -911,12 +880,10 @@ while game_running:
                 print(">>Actions:" + '\n' + "(1)Finish off the DARK LORD" + '\n' +
                        "(2)Spare the DARK LORD")
                 decision = input(">")
-                if decision == "1" or decision == "2":
+                if decision in ["1", "2"]:
                     break
                 else:
-                    print("That is not a valid command!")
-                    print("")
-                    time.sleep(0.3)
+                    notAValidCommand()
             
             if decision == "1":
                 print("You decided to finish off the DARK LORD with your anti-aircraft gun.")
@@ -974,12 +941,10 @@ while game_running:
                 print(">>Actions: " + '\n' + "(1)Finish off the DARK LORD with a 1080 epic mlg dorito no-scope" + '\n' +
                       "(2)Spare the DARK LORD")
                 decision = input(">")
-                if decision == "1" or decision == "2":
+                if decision in ["1", "2"]:
                     break
                 else:
-                    print("That is not a valid command!")
-                    print("")
-                    time.sleep(1)
+                    notAValidCommand()
             
             if decision == "1":
                 print("You decided to 1080 epic dorito mlg no-scope the DARK LORD")
@@ -1024,9 +989,7 @@ while game_running:
                 if decision == "1" or decision == "2":
                     break
                 else:
-                    print("That is not a valid command!")
-                    print("")
-                    time.sleep(0.3)
+                    notAValidCommand()
             if decision == "1":
                 print("You finished off the DARK LORD with another explosion.")
                 time.sleep(1)
@@ -1221,39 +1184,16 @@ while game_running:
         if decision.lower() == "y" or decision.lower() == "n":
             break
         else:
-            print("That is not a valid command!")
-            print("")
-            time.sleep(0.3)
+            notAValidCommand()
         
     #If the user wants to play again to get more achivements
     if decision.lower() == "y":
         deaths = 0
         latest_death = "None"
-        name = input("Type your name: ")
+        name = input("Type your name: ") or 'Flipper Flopper'
         continue
     else:
         print("Thank You For Playing!")
         time.sleep(2.5)
         break
-            
-
-
-    
-    
-
-        
-
-
-
-                
-
-                    
-
-    
-    
-    
-
-
-
-
         
