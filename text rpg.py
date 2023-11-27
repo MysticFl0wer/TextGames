@@ -33,7 +33,7 @@ print("Ver. 1.0.6")
 print("Written in Python 3")
 print("")
 
-time.sleep(1)
+#time.sleep(1)
 
 def notAValidCommand():
     print("That's not a valid command!")
