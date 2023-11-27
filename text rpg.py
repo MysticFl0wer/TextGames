@@ -1,6 +1,8 @@
 from time import sleep
 
 main_game = True
+side_quest = False
+
 deaths = 0
 latest_death = "None"
 #Achievements
@@ -43,6 +45,14 @@ def notAValidCommand():
 
 #will default to 'flipper flopper' if the user doesn't input anything
 name = input("Type your name: ") or "Flipper Flopper"
+
+def displayTomb():
+    print("")
+    print("----------" + name.upper() + "'S TOMBSTONE----------")
+    print("Number of deaths: " + str(deaths))
+    print("Reason for latest death: " + latest_death)
+    print("------------------------------------")
+    print("")
 
 while main_game:
     #stats
@@ -1180,9 +1190,22 @@ while main_game:
     
     while True:
         print(">>Type 'y' to play the game again. Type 'n' to exit.")
+        sleep(1)
+        if num_of_achievements == total:
+            print(">>Congratulations! You got all achievements. Type 's' to play the exclusive side quest.")
         decision = input(">")
         if decision.lower() == "y" or decision.lower() == "n":
             break
+        elif decision.lower() == "s" and num_of_achievements == total:
+            print(">>WARNING: You will not be able to go back to the main game once you start.")
+            decision = input("Are you sure you want to continue? (yes/no): ")
+            if decision.lower() == "yes":
+                side_quest = True
+                break
+            elif decision.lower() == "no":
+                continue
+            else:
+                notAValidCommand()
         else:
             notAValidCommand()
         
@@ -1192,8 +1215,12 @@ while main_game:
         latest_death = "None"
         name = input("Type your name: ") or 'Flipper Flopper'
         continue
-    else:
+    elif decision.lower() == "n":
         print("Thank You For Playing!")
-        sleep(2.5)
         break
+    else:
+        break
+
+
+        
         
