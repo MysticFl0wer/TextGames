@@ -1191,21 +1191,9 @@ while main_game:
     while True:
         print(">>Type 'y' to play the game again. Type 'n' to exit.")
         sleep(1)
-        if num_of_achievements == total:
-            print(">>Congratulations! You got all achievements. Type 's' to play the exclusive side quest.")
         decision = input(">")
         if decision.lower() == "y" or decision.lower() == "n":
             break
-        elif decision.lower() == "s" and num_of_achievements == total:
-            print(">>WARNING: You will not be able to go back to the main game once you start.")
-            decision = input("Are you sure you want to continue? (yes/no): ")
-            if decision.lower() == "yes":
-                side_quest = True
-                break
-            elif decision.lower() == "no":
-                continue
-            else:
-                notAValidCommand()
         else:
             notAValidCommand()
         
