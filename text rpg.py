@@ -46,13 +46,6 @@ def notAValidCommand():
 #will default to 'flipper flopper' if the user doesn't input anything
 name = input("Type your name: ") or "Flipper Flopper"
 
-def displayTomb():
-    print("")
-    print("----------" + name.upper() + "'S TOMBSTONE----------")
-    print("Number of deaths: " + str(deaths))
-    print("Reason for latest death: " + latest_death)
-    print("------------------------------------")
-    print("")
 
 while main_game:
     #stats
