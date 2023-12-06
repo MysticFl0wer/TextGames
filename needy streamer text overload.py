@@ -1,3 +1,7 @@
+""""
+//THIS GAME IS UNDER CONSTRUCTION!//
+"""
+
 from time import sleep
 import os
 from os import system
@@ -130,6 +134,7 @@ class GF:
         self.stress = 0
         self.affection = 0
         self.mental_darkness = 0
+        self.therapy_cost = 50
     
     #add THE function here (but on your personal computer)
 
@@ -143,6 +148,8 @@ def clear():
     # for mac and linux(here, os.name is 'posix')
     else:
         _ = system('clear')
+
+clear()
 
 def notAValidCommand():
     print("That's not a valid command!")
@@ -165,6 +172,33 @@ def doTheDeedScreen():
     print("===================================================")
     sleep(2.3)
 
+def therapyScreen():
+    clear()
+    print("======================================================")
+    print("therapy.exe                                  | - | X |")
+    print("======================================================")
+    print("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░")
+    print("░░░░██████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░")
+    print("░░░░█░░░░░░░░█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░")
+    print("░░░░█░░░██░░░█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░")
+    print("░░░░█░██████░█████████████████████████████░░░░░░░░░░░░")
+    print("░░░░█░██████░█░░┌┐┌┬─┬──┬─┬──┬──┬──┬┐░░░░█░░░░░░░░░░░░")
+    print("░░░░█░░░██░░░█░░│└┘│││──┤┼├││┴┐┌┤┌┐││░░░░█░░░░░░░░░░░░")
+    print("░░░░█░░░░░░░░█░░└┘└┴─┴──┴┘└──┘└┘└┘└┴─┘░░░█░░░░░░░░░░░░")
+    print("░░░░███████████████████████████████████████░░░░░░░░░░░")
+    print("░░░░█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█░░░░░░░░░░░")
+    print("░░░░█░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░█░░░░░░░░░░░")
+    print("░░░░█░░░░░░░░░░░░░░░███░░░███░░░███░░███░░█░░░░░░░░░░░")
+    print("░░░░█░░░░░░░░░░░░░░░███░░░███░░░███░░███░░█░░░░░░░░░░░")
+    print("░░░░█░░█████████░░░░░░░░░░░░░░░░░░░░░░░░░░█░░░░░░░░░░░")
+    print("░░░░█░░█░░░█░░░█░░░░░░░░░░░░░░░░░░░░░░░░░░█░░░░░░░░░░░")
+    print("░░░░█░░█░░░█░░░█░░░░░░░░░░░░░░░░░░░░░░░░░░█░░░░░░░░░░░")
+    print("░░░░█░░█░░░█░░░█░░░░░░░░░░░░░░░░░░░░░░░░░░█░░░░░░░░░░░")
+    print("░░░░█░░█░░░█░░░█░░░░░░░░░░░░░░░░░░░░░░░░░░█░░░░░░░░░░░")
+    print("░░░░███████████████████████████████████████░░░░░░░░░░░")
+    print("░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░")
+    print("======================================================")
+    sleep(2.3)
 
 
 
@@ -234,6 +268,7 @@ def titleScreen():
 #too much mental darkness
 #too much stress
 #too much affection
+#too little affection
 #not enough subscribers by the end of day 30
 #died from.. you know...
 
@@ -252,12 +287,38 @@ def displayMenu():
     print("================================")
     print("(1)Check your girlfriend's stats")
     print("(2)Go Outside")
-    print("(3)Go to therapy (Costs $" + str(ame.therapy_cost) + ")")
+    print(f"(3)Go to therapy (Costs ${ame.therapy_cost})")
     print("(4)Do the deed")
     if current_time == "Night":
         print("(6)Stream")
     print("=================================")
 clear()
+
+def ranOutOfMoneyScreen():
+    global ame
+    global day
+    global current_time
+    global lost
+    
+    ame.reset()
+    lost = False
+    day = 1
+    current_time = "Day"
+
+    print("===============================")
+    print("youLost.exe           | - | X |")
+    print("===============================")
+    print("Money, Money, Money")
+    print("---------------------")
+    print("Money is the equivalence point.")
+    print("********************************")
+    print("Type Anything to Continue")
+    print("===============================")
+    i = input(">")
+    clear()
+
+    
+    
 
 def checkForLoss():
     global ame
@@ -265,14 +326,13 @@ def checkForLoss():
     global lost
 
     if ame.money <= 0:
-        print(ame.name.upper() + " can't live like this anymore..")
+        print(f"{ame.name.upper()} can't live like this anymore..")
         sleep(1.4)
-        print(ame.name.upper() + " ran out of money.")
+        print(f"{ame.name.upper()} ran out of money.")
+        sleep(2.5)
         lost = True
-
-def ranOutOfMoneyScreen():
-    print("===========================")
-    print("youLost.exe       | - | X |")
+        ranOutOfMoneyScreen()
+    
 
 
 #main game loop
@@ -286,16 +346,27 @@ while True:
             print("")
             print(ame)
             sleep(2.8)
+        elif decision == "3":
+            if ame.money >= ame.therapy_cost:
+                ame.money -= ame.therapy_cost
+                print(f"You decided to send {ame.name.upper()} to therapy.")
+                sleep(2.8)
+                handleTime()
+                ame.therapy()
+                therapyScreen()
+            else:
+                print("You don't have enough money!")
+                sleep(1.4)
         elif decision == "4":
             handleTime()
-            print("You decided to do the deed with " + ame.name.upper())
+            print(f"You decided to do the deed with {ame.name.upper()}")
             sleep(2.8)
             ame.doTheDeed()
             doTheDeedScreen()
 
         else:
             notAValidCommand()
-    
+    checkForLoss()
     while day == 2 and not lost:
         clear()
         displayMenu()
