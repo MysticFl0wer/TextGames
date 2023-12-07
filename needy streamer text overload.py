@@ -60,7 +60,7 @@ class GF:
         state += f"Stress: {self.stress} / 100\n" 
         state += f"Affection: {self.affection} / 100\n"
         state += f"Mental Darkness: {self.mental_darkness} / 100\n" 
-        state += f"Money: ${self.money}"
+        state += f"Money: ${self.money}\n"
         state += "--------------------"
 
         return state
