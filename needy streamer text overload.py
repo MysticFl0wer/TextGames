@@ -294,6 +294,7 @@ def displayMenu():
     print("=================================")
 clear()
 
+#loss by running out of money
 def ranOutOfMoneyScreen():
     global ame
     global day
@@ -316,6 +317,34 @@ def ranOutOfMoneyScreen():
     print("===============================")
     i = input(">")
     clear()
+
+#loss by too much mental darkness
+def mentalDarkenssLost():
+    global ame
+    global day
+    global current_time
+    global lost
+
+    ame.reset()
+    lost = False
+    day = 1
+    current_time = "Day"
+    
+    print("===============================")
+    print("youLost.exe           | - | X |")
+    print("===============================")
+    print("Think Happy Thoughts")
+    print("---------------------")
+    print("988lifeline.org")
+    print("********************************")
+    print("Type Anything to Continue")
+    print("===============================")
+    i = input(">")
+    clear()
+
+
+
+
 
     
     
@@ -366,7 +395,8 @@ while True:
 
         else:
             notAValidCommand()
-    checkForLoss()
+    #Do not check for losses until day 6
+    ame.spendMoney()
     while day == 2 and not lost:
         clear()
         displayMenu()
