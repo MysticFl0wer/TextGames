@@ -54,13 +54,13 @@ class GF:
 
     #Prints out all stats  
     def __str__(self):
-        state = self.name.upper() + "'S STATS" + '\n'
-        state += "--------------------" + '\n'
-        state += f"Subscribers: {self.subscribers} / 1000000" + '\n'
-        state += "Stress: " + str(self.stress) + "\n"
-        state += "Affection: " + str(self.affection) + '\n'
-        state += "Mental Darkness: " + str(self.mental_darkness) + '\n'
-        state += "Money: $" + str(self.money) + '\n'
+        state = f"{self.name.upper()}'S STATS\n"
+        state += "--------------------\n"
+        state += f"Subscribers: {self.subscribers} / 1000000\n"
+        state += f"Stress: {self.stress} / 100\n" 
+        state += f"Affection: {self.affection} / 100\n"
+        state += f"Mental Darkness: {self.mental_darkness} / 100\n" 
+        state += f"Money: ${self.money}"
         state += "--------------------"
 
         return state
