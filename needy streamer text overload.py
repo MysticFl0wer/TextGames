@@ -118,7 +118,7 @@ class GF:
     def doTheDeed(self):
         rand_ment = random.randint(20, 45)
         rand_stress = random.randint(35, 55)
-        rand_affect = random.randint(20, 60)
+        rand_affect = random.randint(30, 60)
 
         self.affection += rand_affect
         self.stress -= rand_stress
@@ -130,6 +130,7 @@ class GF:
         if self.mental_darkness < 0:
             self.mental_darkness = 0
     
+    #resets all stats
     def reset(self):
         self.money = 100
         self.subscribers = 0
@@ -137,6 +138,7 @@ class GF:
         self.affection = 0
         self.mental_darkness = 0
         self.therapy_cost = 50
+        self.subscriber_bonus = 0
     
     #add THE function here (but on your personal computer)
 
@@ -344,12 +346,6 @@ def mentalDarkenssLost():
     i = input(">")
     clear()
 
-
-
-
-
-    
-    
 
 def checkForLoss():
     global ame
