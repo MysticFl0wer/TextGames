@@ -46,6 +46,7 @@ class GF:
     therapy_cost = 50
     #Searching for stream ideas will give you bonus subscribers
     subscriber_bonus = 0
+    
 
     def __init__(self, name, moneyIncrement):
         self.name = name
@@ -55,6 +56,7 @@ class GF:
     def __str__(self):
         state = self.name.upper() + "'S STATS" + '\n'
         state += "--------------------" + '\n'
+        state += f"Subscribers: {self.subscribers} / 1000000" + '\n'
         state += "Stress: " + str(self.stress) + "\n"
         state += "Affection: " + str(self.affection) + '\n'
         state += "Mental Darkness: " + str(self.mental_darkness) + '\n'
@@ -75,7 +77,7 @@ class GF:
             self.money += 50
         else:
             rand = random.randint(1, 10)
-            x = int((3*self.subscribers)/rand)
+            x = int((3*(self.subscribers + self.subscriber_bonus))/rand)
             self.money += int(x * (20/9))
             self.mental_darkness += int(x * 1.3)
             self.stress += int(x * (3.5/2))
@@ -130,6 +132,18 @@ class GF:
         if self.mental_darkness < 0:
             self.mental_darkness = 0
     
+    def browseIdeas(self):
+        chance = random.randint(1,2)
+        rand_bonus = random.randint(5,10)
+        if chance == 1:
+            print(f"{self.name.upper()} found some new ideas for a stream!")
+            sleep(1.2)
+            print(f"GAINED +{rand_bonus} SUBSCRIBER BONUS")
+            self.subscriber_bonus += rand_bonus
+        else:
+            print(f"{self.name.upper()} failed to find any ideas!")
+
+
     #resets all stats
     def reset(self):
         self.money = 100
@@ -390,11 +404,14 @@ while True:
             sleep(2.8)
             ame.doTheDeed()
             doTheDeedScreen()
-
+        elif decision == "6" and current_time == "Night":
+            ame.stream()
+            print(f"{ame.name.upper()} is now live!")
+            sleep(1.3)
+            handleTime()
         else:
             notAValidCommand()
     #Do not check for losses until day 6
-    ame.spendMoney()
     while day == 2 and not lost:
         clear()
         displayMenu()
