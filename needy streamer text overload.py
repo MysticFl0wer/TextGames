@@ -44,6 +44,8 @@ class GF:
     mental_darkness = 0
     subscribers = 0
     therapy_cost = 50
+    #Searching for stream ideas will give you bonus subscribers
+    subscriber_bonus = 0
 
     def __init__(self, name, moneyIncrement):
         self.name = name
