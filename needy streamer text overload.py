@@ -404,6 +404,11 @@ while True:
         displayMenu()
         decision = input(">")
 
+        if decision == "1":
+            print("")
+            print(ame)
+            sleep(2.8)
+
         
 
 
